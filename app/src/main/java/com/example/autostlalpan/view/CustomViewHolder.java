@@ -14,14 +14,13 @@ import com.example.autostlalpan.model.CarsPojo;
 public class CustomViewHolder extends RecyclerView.ViewHolder {
 
     ImageView ivCarPicture;
-    TextView tvCarTitulo, tvCarModelo, tvCarPrice;
+    TextView tvCarTitulo, tvCarPrice;
     Button btnDetalles;
 
     public CustomViewHolder(@NonNull View itemView) {
         super(itemView);
         ivCarPicture = itemView.findViewById(R.id.iv_car_picture);
         tvCarTitulo = itemView.findViewById(R.id.tv_titulo);
-        tvCarModelo = itemView.findViewById(R.id.tv_modelo);
         tvCarPrice = itemView.findViewById(R.id.tv_price);
         btnDetalles = itemView.findViewById(R.id.btn_details);
     }

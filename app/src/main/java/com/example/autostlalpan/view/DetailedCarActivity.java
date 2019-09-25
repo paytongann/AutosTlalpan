@@ -1,9 +1,9 @@
 package com.example.autostlalpan.view;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -19,8 +19,7 @@ public class DetailedCarActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     MyCustomPagerAdapter myCustomPagerAdapter;
-    private CircleIndicator circleIndicator;
-    private TextView tvCarTitulo, tvCarModelo, tvCarKilometraje, tvCarColorExterior, tvCarColorInterior, tvCarTransmision, tvCarInyeccion, tvCarDriveTrain;
+    private TextView tvCarTitulo, tvCarModelo, tvCarKilometraje, tvCarColorExterior, tvCarColorInterior, tvCarTransmision, tvCarInyeccion, tvCarDriveTrain, tvInterior, tvExterior, tvPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,5 +59,21 @@ public class DetailedCarActivity extends AppCompatActivity {
         tvCarInyeccion.setText(getIntent().getStringExtra("inyeccion"));
         tvCarDriveTrain = findViewById(R.id.tv_car_drivetrain);
         tvCarDriveTrain.setText(getIntent().getStringExtra("drivetrain"));
+        tvInterior = findViewById(R.id.tv_equipo_interior_body);
+        String interior = getIntent().getStringExtra("interior");
+        String interiorEquipo = "";
+        for (int i=0; i<interior.split(",").length; i++){
+            interiorEquipo += "* " + interior.split(",")[i] + "\n";
+        }
+        tvInterior.setText(interiorEquipo);
+        tvExterior = findViewById(R.id.tv_equipo_exterior_body);
+        String exterior = getIntent().getStringExtra("exterior");
+        String exteriorEquipo = "";
+        for (int i=0; i<exterior.split(",").length; i++){
+            exteriorEquipo += "* " + exterior.split(",")[i] + "\n";
+        }
+        tvExterior.setText(exteriorEquipo);
+        tvPrice = findViewById(R.id.tv_precio);
+        tvPrice.setText("$" + getIntent().getStringExtra("price"));
     }
 }

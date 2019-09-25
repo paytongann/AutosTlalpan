@@ -47,9 +47,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> implem
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        holder.tvCarPrice.setText( "$" + dataSet.get(position).precio);
-        holder.tvCarTitulo.setText(dataSet.get(position).titulo + "\n");
-        holder.tvCarModelo.setText(dataSet.get(position).modelo.toString());
+        holder.tvCarPrice.setText( "Precio: $" + dataSet.get(position).precio);
+        holder.tvCarTitulo.setText(dataSet.get(position).titulo);
         Glide.with(context).load(dataSet.get(position).imagenes.get(0)).into(holder.ivCarPicture);
         holder.onBindViewHolder(dataSet.get(position), listener);
     }
